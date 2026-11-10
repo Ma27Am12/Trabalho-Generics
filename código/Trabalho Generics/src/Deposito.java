@@ -17,6 +17,15 @@ public class Deposito <T extends Produto> {
         return Optional.of(itens.get(index));
     }
 
+    public Optional<T> buscarPorNome(String nome) {
+        for(T item : itens) {
+            if (item.getNome().equalsIgnoreCase(nome)) {
+                return Optional.of(item);
+            }
+        }
+        return Optional.empty();
+    }
+
     public List<T> getItens() {
         return itens;
     }
